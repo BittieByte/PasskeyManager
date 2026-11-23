@@ -1,6 +1,6 @@
 # Passkey Manager
 
-**See, name and remove the passkeys stored in Windows Hello.**
+**See and remove the passkeys stored in Windows Hello.**
 
 Passkey Manager is a small portable Windows app for people whose sign-in prompt has grown into a long list of
 identical-looking entries. It reads the passkeys that Windows Hello keeps on your PC, tells you which website each
@@ -9,6 +9,8 @@ one belongs to, and lets you delete the ones you no longer want.
 - Portable: one `.exe`, no installer, no network access, no telemetry
 - Everything it saves is created **next to the `.exe`**
 - Light and dark mode
+
+![Passkey Manager Dark Dashboard](Passkey%20Manager%20Dark%20Dashboard.png)
 
 ## Why this exists
 
