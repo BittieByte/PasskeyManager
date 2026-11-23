@@ -1,0 +1,134 @@
+# Passkey Manager - built-in site list
+#
+# Windows stores only a SHA-256 hash of each passkey's site name (its "RP ID"). The app hashes every
+# domain below (and each alias) and compares, which is how an unreadable hash becomes a readable site name.
+#
+# FORMAT (CSV, UTF-8, one service per line; lines starting with # are comments)
+#   domain   - the RP ID / domain the service uses for passkeys (lowercase, no scheme, no path)
+#   aliases  - other domains of the same service, separated by spaces (optional)
+#   name     - human-readable service name
+#   category - free-form grouping label
+#   source   - URL of official documentation proving passkey support (optional, https only)
+#
+# RULES FOR NEW ENTRIES
+#   * Only services that actually support passkeys (not just security keys or other 2FA).
+#   * Put the domain the passkey is bound to. Parent domains (e.g. google.com for mail.google.com) are
+#     matched automatically, so only list a subdomain if the service really binds passkeys to it.
+#   * No duplicates: a domain may appear once, either as a domain or as an alias.
+#   * Prefer a documentation link as the source.
+#
+# INCLUSION RULE
+#   A service is kept only if it supports passkey sign-in ("passwordless"), or supports passkeys as a
+#   second factor AND links documentation that is explicitly about passkeys. Services that only document
+#   hardware security keys, U2F or generic 2FA are left out on purpose.
+#
+domain,aliases,name,category,source
+aero.zip,,aero.zip,backup,https://aero.zip/faq/can-i-log-in-with-passkey
+drive.google.com,,Google Drive,backup,https://safety.google/authentication/passkey/
+dropbox.com,getdropbox.com,Dropbox,backup,https://help.dropbox.com/account-access/enable-2-factor-authentication
+onedrive.live.com,,OneDrive,backup,https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless
+synology.com,,Synology,backup,https://kb.synology.com/en-us/DSM/help/DSM/SecureSignIn/hardware_security_key
+capitalone.com,,Capital One,banking,https://www.capitalone.com/help-center/credit-cards/passkey-support/
+chase.com,,Chase,banking,https://www.chase.com/digital/resources/privacy-security/security/how-you-can-protect
+penfed.org,,PenFed,banking,
+revolut.com,,Revolut,banking,https://help.revolut.com/help/profile-and-plan/log-in-issues/what-are-passkeys/
+ubank.com.au,,UBank,banking,https://www.ubank.com.au/help/current/app-and-online-banking/passkeys/how-do-i-add-passkeys-to-sign-in-to-my-ubank-app
+usbank.com,,U.S. Bank,banking,https://www.usbank.com/online-mobile-banking/passkey.html
+wealthsimple.com,,Wealthsimple,banking,https://help.wealthsimple.com/hc/articles/45953732950939
+wellsfargo.com,,Wells Fargo,banking,https://www.wellsfargo.com/help/security-and-fraud/passkey-faqs/
+aws.amazon.com,,Amazon Web Services,cloud,https://aws.amazon.com/iam/features/mfa/
+azure.microsoft.com,,Microsoft Azure,cloud,https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless
+cloud.google.com,,Google Cloud Platform,cloud,https://safety.google/authentication/passkey/
+vercel.com,,Vercel,cloud,
+chat.google.com,,Google Chat,communication,https://safety.google/authentication/passkey/
+cloze.com,,Cloze,communication,https://help.cloze.com/article/2729-how-do-i-sign-in-with-a-passkey
+discord.com,discordapp.com,Discord,communication,https://support.discord.com/hc/articles/25966860846231
+groupme.com,,GroupMe,communication,https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless
+meet.google.com,,Google Meet,communication,https://safety.google/authentication/passkey/
+notion.so,,Notion,communication,https://www.notion.com/help/passkeys
+teams.live.com,skype.com,Microsoft Teams,communication,https://learn.microsoft.com/entra/identity/authentication/concept-authentication-passwordless
+telegram.org,,Telegram,communication,https://telegram.org/faq/#q-what-is-a-passkey
+zoho.com,,Zoho,communication,https://help.zoho.com/portal/en/kb/accounts/multi-factor-authentication/articles/mfa-security-key
+adobe.com,,Adobe,creativity,https://helpx.adobe.com/manage-account/using/secure-sign-in-with-passkey.html
+canva.com,,Canva,creativity,https://www.canva.com/help/passkey-log-in/
+binance.com,,Binance,cryptocurrencies,https://www.binance.com/en/support/faq/c-1?navId=1#11
+coinbase.com,,Coinbase,cryptocurrencies,https://help.coinbase.com/en/coinbase/getting-started/verify-my-account/how-do-i-set-up-2-factor-authentication
+okx.com,,OKX,cryptocurrencies,https://www.okx.com/help/how-do-i-create-passkeys-web
+crowdin.com,,Crowdin,developer,
+github.com,,GitHub,developer,https://docs.github.com/en/authentication/authenticating-with-a-passkey/about-passkeys
+gitlab.com,,GitLab,developer,https://docs.gitlab.com/auth/passkeys/
+id.atlassian.com,,Atlassian Cloud,developer,https://support.atlassian.com/atlassian-account/docs/access-your-atlassian-account-with-a-passkey/
+nuget.org,,NuGet,developer,https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless
+openai.com,chatgpt.com,OpenAI (ChatGPT),developer,https://help.openai.com/articles/20001039
+report-uri.com,,Report URI,developer,https://docs.report-uri.com/help/passkeys/
+visualstudio.microsoft.com,,Visual Studio Codespaces,developer,https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless
+porkbun.com,,Porkbun,domains,https://kb.porkbun.com/article/19--
+mail.google.com,,Gmail,email,https://safety.google/authentication/passkey/
+outlook.com,outlook.live.com hotmail.com,Outlook.com,email,https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless
+posteo.de,,Posteo,email,https://posteo.de/hilfe/passkey-erstellen-und-benutzen
+yahoo.co.jp,,Yahoo [JP],email,
+yahoo.com,,Yahoo,email,https://help.yahoo.com/kb/SLN35635.html
+mangadex.org,,MangaDex,entertainment,
+onelog.ch,,OneLog,entertainment,
+play.google.com,,Google Play,entertainment,https://safety.google/authentication/passkey/
+youtube.com,,YouTube,entertainment,https://safety.google/authentication/passkey/
+bridgecrest.com,,Bridgecrest,finance,
+dinero.dk,,Dinero,finance,https://dinero.dk/support/to-faktor-login
+payfit.com,,PayFit,finance,https://support.payfit.com/en/articles/73141#h_ac4cfb3047
+visma.com,easycruit.com visma.fi visma.net visma.no visma.se,Visma,finance,
+wise.com,transferwise.com,Wise,finance,https://wise.com/help/articles/4OTG2Z93XXyaurUviZRg5O/
+instacart.com,,Instacart,food,https://www.instacart.com/company/shopper-community/new-features-to-make-your-experience-seamless/
+accounts.nintendo.com,,Nintendo Account,gaming,https://en-americas-support.nintendo.com/app/answers/detail/a_id/62531
+blizzard.com,battle.net,Blizzard/Battle.net,gaming,https://support.blizzard.com/help/article/380922
+hypixel.net,,Hypixel,gaming,
+minecraft.net,mojang.com,Minecraft,gaming,https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless
+playstation.com,sonyentertainmentnetwork.com,PlayStation,gaming,https://www.playstation.com/passkey/
+roblox.com,,Roblox,gaming,https://en.help.roblox.com/hc/articles/20669991483156
+xbox.com,,Xbox Live,gaming,https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless
+fusionauth.io,,FusionAuth,identity,https://fusionauth.io/docs/lifecycle/manage-users/account-management/add-webauthn
+login.microsoft.com,,Microsoft sign-in (Entra ID),identity,https://learn.microsoft.com/en-my/graph/api/resources/webauthnpublickeycredentialrpentity?view=graph-rest-beta
+okta.com,,Okta,identity,https://help.okta.com/en-us/content/topics/security/mfa/mfa-factors.htm
+singlekey-id.com,,SingleKey ID,identity,https://singlekey-id.com/en-gb/frequently-asked-questions#passkeys
+ameriprise.com,,Ameriprise Financial,investing,https://www.ameriprise.com/customer-service/passkey-faq
+boursorama.com,,Boursorama,investing,https://www.boursobank.com/aide-en-ligne/securite/proteger-mon-espace-client/question/5165516
+fidelity.com,,Fidelity Investments,investing,https://www.fidelity.com/security/extra-security-login
+robinhood.com,,Robinhood,investing,https://robinhood.com/us/en/support/articles/passkeys/
+m365.cloud.microsoft,login.microsoftonline.com office.microsoft.com microsoft365.com office365.com office.com yammer.com,Microsoft 365 Copilot,other,https://support.microsoft.com/en-us/account-billing/how-to-use-two-step-verification-with-your-microsoft-account-c7910146-672f-01e9-50a0-93b4585e7eb4
+shopify.com,,Shopify,other,https://help.shopify.com/en/manual/your-account/logging-in/passkeys
+wikipedia.org,,Wikipedia,other,https://meta.wikimedia.org/wiki/Help:Two-factor_authentication
+klarna.com,,Klarna,payments,https://www.klarna.com/help/account-and-settings/how-do-i-log-in/
+link.com,,Link,payments,https://support.link.com/questions/passkeys-on-link
+pay.google.com,,Google Pay,payments,https://safety.google/authentication/passkey/
+paypal.com,paypal-search.com,PayPal,payments,https://www.paypal.com/us/cshelp/article/help997
+shop.app,,Shop,payments,https://help.shop.app/en/shop/shop-pay-settings/security/passkeys
+airasia.com,,AirAsia,retail,
+amazon.com,amazon.ae amazon.ca amazon.cn amazon.co.jp amazon.co.uk amazon.com.au amazon.com.br amazon.com.mx amazon.com.tr amazon.de amazon.es amazon.fr amazon.in amazon.it amazon.nl amazon.sa amazon.se amazon.sg,Amazon,retail,https://www.amazon.com/gp/help/customer/display.html?nodeId=TPphmhSWBgcI9Ak87p
+appleid.apple.com,,Apple,retail,https://support.apple.com/en-us/HT204915
+bestbuy.com,,Best Buy [US],retail,
+braunhousehold.com,delonghi.com kenwoodworld.com,Braun,retail,
+canadiantire.ca,triangle.com sportchek.ca marks.com partycity.ca,Canadian Tire,retail,https://triangle.canadiantire.ca/en/my-account/account-settings/passkey.html
+dell.com,,Dell,retail,https://www.dell.com/en-uk/lp/protect-your-account-faq
+ebay.com,ebay.com.au ebay.at ebay.be ebay.ca ebay.cn ebay.fr ebay.de ebay.com.hk ebay.in ebay.ie ebay.it ebay.co.jp gmarket.co.kr ebay.com.my ebay.nl ebay.ph ebay.pl ebay.com.sg ebay.es ebay.ch ebay.com.tw ebay.co.uk,eBay,retail,https://www.ebay.com/help/account/signing-account/signing-account?id=4189#section2
+homedepot.com,,Home Depot,retail,
+lowes.com,,Lowe's,retail,
+migros.ch,,Migros,retail,https://account.migros.ch/help#faqPasskeyPrio
+target.com,,Target,retail,https://help.target.com/help/TargetGuestHelpArticleDetail?articleId=ka95d0000008R16AAE
+walmart.com,,Walmart,retail,https://www.walmart.com/help/article/passkeys/79bc4a57374146c497ebe3bf8d4f9b10
+woolworths.com.au,,Woolworths,retail,
+bitwarden.com,,Bitwarden,security,https://bitwarden.com/help/login-with-passkeys/
+hcaptcha.com,,hCaptcha,security,
+bumble.com,,Bumble,social,
+facebook.com,messenger.com,Facebook,social,https://www.facebook.com/help/1181045243159511
+linkedin.com,,LinkedIn,social,https://www.linkedin.com/help/linkedin/answer/a1621596
+lnk.bio,,Lnk.Bio,social,https://lnk.bio/linkin/log-in-with-passkeys-to-lnkbio
+pixiv.net,,Pixiv,social,https://www.pixiv.help/hc/articles/32291223415449
+reddit.com,,Reddit,social,https://support.reddithelp.com/hc/articles/49063461551252
+snapchat.com,,Snapchat,social,https://help.snapchat.com/hc/articles/27317385968532
+tiktok.com,,TikTok,social,https://support.tiktok.com/en/log-in-troubleshoot/log-in/log-in-with-a-passkey
+vk.com,vk.ru,VK,social,
+x.com,twitter.com,X (Twitter),social,https://help.x.com/managing-your-account/how-to-use-passkey
+to-do.office.com,,Microsoft To-Do,task,https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless
+toggl.com,,Toggl,task,https://support.toggl.com/how-to-set-up-and-log-in-with-a-passkey
+uber.com,,Uber,transport,https://help.uber.com/riders/article/-?nodeId=61701cda-3615-43b2-8187-1440e91035d8
+booking.com,,Booking.com,travel,
+localhost,,Local development,development,

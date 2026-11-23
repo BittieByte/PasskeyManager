@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>PasskeyManager</RootNamespace>
+    <AssemblyName>PasskeyManager</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+
+    <Product>Passkey Manager</Product>
+    <Description>Lists, names and removes the passkeys stored in Windows Hello.</Description>
+    <Version>1.0.0</Version>
+
+    <!-- IncludeNativeLibrariesForSelfExtract is deliberately not set: the program must not unpack files at runtime. -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\passkey-sites.csv" LogicalName="PasskeySites.csv" />
+  </ItemGroup>
+
+</Project>

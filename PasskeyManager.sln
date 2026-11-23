@@ -1,0 +1,28 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PasskeyManager", "src\PasskeyManager\PasskeyManager.csproj", "{15B2B10A-356B-4A1C-8582-E416B66D9D5E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PasskeyManager.Tests", "tests\PasskeyManager.Tests\PasskeyManager.Tests.csproj", "{295DC0F0-F653-497D-BC8D-862A44785B5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15B2B10A-356B-4A1C-8582-E416B66D9D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B2B10A-356B-4A1C-8582-E416B66D9D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B2B10A-356B-4A1C-8582-E416B66D9D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B2B10A-356B-4A1C-8582-E416B66D9D5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{295DC0F0-F653-497D-BC8D-862A44785B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{295DC0F0-F653-497D-BC8D-862A44785B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{295DC0F0-F653-497D-BC8D-862A44785B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{295DC0F0-F653-497D-BC8D-862A44785B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Test
+        run: dotnet test tests/PasskeyManager.Tests -c Release
+
+      - name: Publish
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          dotnet publish src/PasskeyManager/PasskeyManager.csproj -c Release -o dist -p:Version="$version"
+
+      - name: Package
+        shell: bash
+        run: |
+          name="PasskeyManager-${GITHUB_REF_NAME}"
+          mkdir package
+          cp dist/PasskeyManager.exe LICENSE NOTICE.md package/
+          powershell -NoProfile -Command "Compress-Archive -Path package/* -DestinationPath '$name.zip'"
+          cp dist/PasskeyManager.exe "$name.exe"
+          sha256sum "$name.zip" "$name.exe" > SHA256SUMS.txt
+
+      - name: Create release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          name="PasskeyManager-${GITHUB_REF_NAME}"
+          flags=""
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then flags="--prerelease"; fi
+          gh release create "$GITHUB_REF_NAME" "$name.zip" "$name.exe" SHA256SUMS.txt \
+            --title "Passkey Manager $GITHUB_REF_NAME" --generate-notes $flags
